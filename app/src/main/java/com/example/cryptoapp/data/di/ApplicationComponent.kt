@@ -1,11 +1,13 @@
 package com.example.cryptoapp.data.di
 
 import android.app.Application
+import com.example.cryptoapp.presentation.CoinApp
 import com.example.cryptoapp.presentation.CoinDetailFragment
 import com.example.cryptoapp.presentation.CoinPriceListActivity
 import dagger.BindsInstance
 import dagger.Component
 
+@ApplicationScope
 @Component(
     modules = [
         DataModule::class,
@@ -13,6 +15,8 @@ import dagger.Component
     ]
 )
 interface ApplicationComponent {
+
+    fun inject(application: CoinApp)
 
     fun inject(activity: CoinPriceListActivity)
 
